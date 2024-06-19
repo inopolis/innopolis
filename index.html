@@ -10,34 +10,31 @@
 
 <body>
     <header>
-        <h1>Welcome to My Portfolio</h1>
+        <nav class="nav-container">
+            <h1>Welcome to My Portfolio</h1>
+            <button onclick="window.location.href='comic.html'" class="nav-button">View Comic</button>
+        </nav>
     </header>
 
-    <section id="bio">
-        <h2>About Me</h2>
-        <p>Hello! I'm Saidaziz. I love designing, creating and exploring new technologies. Here is a little more about
-            my journey and interests.</p>
-        <p>I primarily use Python, C++, and JavaScript for programming, along with HTML and CSS for web development</p>
-    </section>
+    <main>
+        <section id="bio">
+            <h2>About Me</h2>
+            <p>Hello! I'm Saidaziz. I love designing, creating and exploring new technologies. Here is a little more
+                about my journey and interests.</p>
+            <p>I primarily use Python, C++, and JavaScript for programming, along with HTML and CSS for web development.
+            </p>
+        </section>
 
-    <section id="projects">
-        <h2>My activity in dev</h2>
-        <ul>
-            <li><a href="https://innohassle.ru" target="_blank">innohassle.ru</a> - innohassle website</li>
-            <li><a href="https://sport.innopolis.university" target="_blank">new my.uni sport</a> - New my.university
-                website</li>
-            <li>For additional information you can contact me!</li>
-        </ul>
-    </section>
-
-    <section id="comic">
-        <h2>Random XKCD Comic</h2>
-        <div id="comic-container" style="display: flex; flex-direction: column; align-items: center;">
-            <img id="comic-img" src="" alt="">
-            <h3 id="comic-title"></h3>
-            <p id="comic-date"></p>
-        </div>
-    </section>
+        <section id="projects">
+            <h2>My activity in dev</h2>
+            <ul>
+                <li><a href="https://innohassle.ru" target="_blank">innohassle.ru</a> - innohassle website</li>
+                <li><a href="https://sport.innopolis.university" target="_blank">new my.uni sport</a> - New
+                    my.university website</li>
+                <li>For additional information you can contact me!</li>
+            </ul>
+        </section>
+    </main>
 
     <footer>
         <h2>Connect with Me</h2>
@@ -53,8 +50,6 @@
             </a>
         </div>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 
 </html>

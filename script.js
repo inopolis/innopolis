@@ -4,39 +4,51 @@ document.addEventListener('DOMContentLoaded', function () {
     const comicImg = document.getElementById('comic-img');
     const comicTitle = document.getElementById('comic-title');
     const comicDate = document.getElementById('comic-date');
+    const loadComicButton = document.getElementById('load-comic');
 
-    // Fetch the XKCD comic ID
-    fetch(`https://fwd.innopolis.university/api/hw2?email=${encodeURIComponent(email)}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Comic ID response:', data);
-            const comicId = data;
-            if (comicId) {
-                return fetch(`https://fwd.innopolis.university/api/comic?id=${comicId}`);
-            } else {
-                throw new Error('Invalid comic ID');
-            }
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
-            }
-            return response.json();
-        })
-        .then(comic => {
-            console.log('Comic data response:', comic);
-            comicImg.src = comic.img;
-            comicImg.alt = comic.alt;
-            comicTitle.textContent = comic.safe_title;
-            comicDate.textContent = comic.year;
-        })
-        .catch(error => {
-            console.error('Error fetching comic:', error);
-            comicContainer.innerHTML = '<p>Failed to load comic. Please try again later.</p>';
-        });
+    function loadComic() {
+        // Fetch the XKCD comic ID
+        fetch(`https://fwd.innopolis.university/api/hw2?email=${encodeURIComponent(email)}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Comic ID response:', data);
+                const comicId = data;
+                if (comicId) {
+                    return fetch(`https://fwd.innopolis.university/api/comic?id=${comicId}`);
+                } else {
+                    throw new Error('Invalid comic ID');
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(comic => {
+                console.log('Comic data response:', comic);
+                comicImg.src = comic.img;
+                comicImg.alt = comic.alt;
+                comicTitle.textContent = comic.safe_title;
+                comicDate.textContent = new Date(comic.year, comic.month - 1, comic.day).toLocaleDateString();
+
+                comicImg.style.display = 'block';
+                comicTitle.style.display = 'block';
+                comicDate.style.display = 'block';
+            })
+            .catch(error => {
+                console.error('Error fetching comic:', error);
+                comicContainer.innerHTML = '<p>Failed to load comic. Please try again later.</p>';
+            });
+    }
+
+    // Add event listener to the button
+    if (loadComicButton) {
+        loadComicButton.addEventListener('click', loadComic);
+    }
 });
