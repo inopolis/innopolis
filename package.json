@@ -1,25 +1,26 @@
 {
   "name": "innopolis",
-  "version": "1.0.0",
-  "description": "Welcome to the personal info web page",
-  "main": "script.js",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "date-fns": "^3.6.0",
-    "parcel-bundler": "^1.12.5",
-    "typescript": "^5.5.2"
+    "dayjs": "^1.11.11",
+    "next": "14.2.4",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-router-dom": "^6.24.1"
   },
   "devDependencies": {
-    "dayjs": "^1.11.11",
-    "terser-webpack-plugin": "^5.3.10",
-    "ts-loader": "^9.5.1",
-    "webpack": "^5.92.1",
-    "webpack-cli": "^5.1.4"
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.4",
+    "typescript": "^5"
   }
 }
