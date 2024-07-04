@@ -1,15 +1,15 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/router';
 
 const Header: React.FC<{ title: string; buttonText?: string; buttonLink?: string }> = ({ title, buttonText, buttonLink }) => {
-    const navigate = useNavigate();
+    const router = useRouter();
 
     return (
         <header>
             <nav className="nav-container">
                 <h1>{title}</h1>
                 {buttonText && buttonLink && (
-                    <button onClick={() => navigate(buttonLink)} className="nav-button">{buttonText}</button>
+                    <button onClick={() => router.push(buttonLink)} className="nav-button">{buttonText}</button>
                 )}
             </nav>
         </header>

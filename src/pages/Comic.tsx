@@ -15,7 +15,7 @@ interface Comic {
     day: string;
 }
 
-const Comic: React.FC = () => {
+export default function ComicPage() {
     const [comic, setComic] = useState<Comic | null>(null);
     const [error, setError] = useState<string | null>(null);
 
@@ -63,6 +63,4 @@ const Comic: React.FC = () => {
             <Footer />
         </div>
     );
-};
-
-export default Comic;
+}
