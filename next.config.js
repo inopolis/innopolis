@@ -4,7 +4,7 @@ module.exports = {
     basePath: isProd ? '/innopolis' : '',
     assetPrefix: isProd ? '/innopolis/' : '',
     images: {
-        domains: ['imgs.xkcd.com'], // Добавьте сюда нужные домены
+        domains: ['imgs.xkcd.com'],
+        unoptimized: true, // Отключаем оптимизацию изображений
     },
-    output: 'export',
 };
